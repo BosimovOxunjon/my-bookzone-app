@@ -3,6 +3,7 @@ import SignUp from "./pages/Login/SignUp";
 import SignIn from "./pages/Login/SignIn";
 import { Routes, Route } from "react-router-dom";
 import Header from "./pages/Header/Header";
+import Search from "./pages/Search/Search";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} exact />
         <Route path="/signin" element={<SignIn />} exact />
       </Routes>
+      <Search />
     </>
   );
 }

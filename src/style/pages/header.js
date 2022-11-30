@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 const StyledHeader = styled.header`
+  position: fixed;
   background: #191919;
+  border-bottom: 0.5px solid #ffffff10;
+  width: 100%;
   .container {
     display: flex;
     justify-content: space-between;
@@ -24,6 +27,11 @@ const StyledHeader = styled.header`
   }
   .btn {
     display: none;
+  }
+  .logo,
+  .header_profile {
+    position: static;
+    z-index: 100;
   }
   .img_wrapper {
     display: inline-block;
@@ -54,10 +62,13 @@ const StyledHeader = styled.header`
       flex-direction: column;
     }
     .btn {
-      position: relative;
+      position: fixed;
       display: inline-block;
+      right: 10px;
+      cursor: pointer;
     }
   }
+  z-index: 1000;
 `;
 
 export { StyledHeader };
