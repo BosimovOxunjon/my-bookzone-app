@@ -52,6 +52,10 @@ const StyledSignUp = styled.section`
       font-weight: 400;
       font-size: 13px;
       line-height: 15px;
+      .link {
+        text-decoration: none;
+        color: #549ff9;
+      }
     }
     .form_input {
       border: 1px solid #b4b4bb;
@@ -71,6 +75,7 @@ const StyledSignUp = styled.section`
       background: #152540;
       border: none;
       border-radius: 35px;
+      cursor: pointer;
     }
   }
   @media screen and (max-width: 992px) {
@@ -96,6 +101,9 @@ const StyledSignUp = styled.section`
     .content_img {
       width: 100%;
       align-items: center;
+    }
+    .form_wrapper {
+      margin-bottom: 50px;
     }
     .img_item:first-child {
       left: inherit;
