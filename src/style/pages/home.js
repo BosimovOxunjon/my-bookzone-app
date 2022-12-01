@@ -1,11 +1,6 @@
 import styled from "styled-components";
-import rotterburgFont from "../../assets/fonts/Rotterburg.otf";
 
 const StyledHome = styled.section`
-  @font-face {
-    fort-face: rotterburg;
-    src: url(${rotterburgFont});
-  }
   padding-top: 100px;
   background: #191919;
   .container {

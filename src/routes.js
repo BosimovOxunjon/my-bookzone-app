@@ -20,7 +20,7 @@ export default [
     key: "home",
   },
   {
-    path: "/book:id",
+    path: "/book/:id",
     component: BookDetails,
     key: "book:id",
   },

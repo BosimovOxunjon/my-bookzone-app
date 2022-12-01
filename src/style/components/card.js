@@ -3,6 +3,9 @@ import styled from "styled-components";
 const StyledCard = styled.div`
   width: 170px;
   overflow: hidden;
+  .card_link {
+    text-decoration: none;
+  }
   .card_title {
     color: #c9ac8c;
     font-weight: 100;
