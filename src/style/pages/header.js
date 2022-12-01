@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 const StyledHeader = styled.header`
   position: fixed;
-  background: #191919;
-  border-bottom: 0.5px solid #ffffff10;
+  top: 0;
   width: 100%;
+  border-bottom: 0.5px solid #ffffff10;
+  background: #191919;
   .container {
     display: flex;
     justify-content: space-between;

@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 const StyledSearch = styled.section`
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   background: #191919;
-  height: 100vh;
+  height: 50vh;
   .row {
-    width: 80vw;
+    width: 70vw;
     margin: auto;
     padding: 40px;
     background: #191919;
