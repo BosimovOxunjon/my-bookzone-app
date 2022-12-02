@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 const StyledSearch = styled.section`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   background: #191919;
-  height: 50vh;
+  height: 100vh;
   .row {
     width: 70vw;
     margin: auto;
@@ -22,7 +22,7 @@ const StyledSearch = styled.section`
       font-style: normal;
       font-weight: 400;
       margin-top: 0;
-      font-size: 31px;
+      font-size: 25px;
       line-height: 34px;
       text-transfrom: uppercase;
       color: #c9ac8c;
@@ -57,10 +57,17 @@ const StyledSearch = styled.section`
       min-width: 95vw;
       max-width: 100%;
     }
+    .title {
+      font-size: 20px;
+    }
     form {
       flex-wrap: wrap;
       .form_btn {
         margin: 15px 0;
+        padding: 10px 30px !important;
+      }
+      .form_input {
+        padding: 10px 15px !important;
       }
     }
   }

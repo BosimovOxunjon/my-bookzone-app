@@ -3,10 +3,13 @@ import React, { useEffect, useState } from "react";
 import BookImg from "../../assets/images/book/book.png";
 import { useParams } from "react-router-dom";
 import { StyledBookDetails } from "../../style/pages/bookDetails";
+import Search from "../Search/Search";
 
 const BookDetails = () => {
   const { id } = useParams();
-  const [books, setBooks] = useState({ payload: { book: {} } });
+  const [books, setBooks] = useState({
+    payload: { book: {} },
+  });
   const fetchBooks = async () => {
     const urlBooks = `https://bookzone-v2.herokuapp.com/api/books/${id}`;
     const { data } = await axios.get(urlBooks);
@@ -37,20 +40,16 @@ const BookDetails = () => {
                 books.payload.book.author.lastName} */}
             </p>
             <p className="book_info">
-              <span>Sahifalar soni:</span>
-              376
+              <span>Sahifalar soni: </span> 376
             </p>
             <p className="book_info">
-              <span>Chop etilgan:</span>
-              2021
+              <span>Chop etilgan:</span> 2021
             </p>
             <p className="book_info">
-              <span>Janri:</span>
-              Tarixiy
+              <span>Janri:</span> Tarixiy
             </p>
             <p className="book_info">
-              <span>Nashriyot:</span>
-              Nihol nashri
+              <span>Nashriyot:</span> Nihol nashri
             </p>
             {/* <p>{books.payload.book.author.lastName}</p> */}
             <p className="description">

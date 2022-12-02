@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledHome = styled.section`
-  padding-top: 100px;
+  padding-top: 70px;
   background: #191919;
   .container {
     padding: 0 50px;

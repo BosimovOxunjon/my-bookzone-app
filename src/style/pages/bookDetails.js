@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 const StyledBookDetails = styled.section`
-  background: #191919;
+  min-height: 100vh;
   padding-top: 70px;
+  background: #191919;
   .container {
     padding: 0 50px;
   }
   .row {
     display: flex;
+    margin-top: 20px;
     .col:first-child {
       width: 40%;
       .img_wrapper {
@@ -55,6 +57,17 @@ const StyledBookDetails = styled.section`
         font-size: 16px;
         line-height: 144.4%;
         color: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+  @media screen and (max-width: 769px) {
+    .row {
+      flex-wrap: wrap;
+      .col {
+        width: 100% !important;
+      }
+      .col:first-child {
+        margin-top: 30px;
       }
     }
   }
