@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledHome = styled.section`
-  padding-top: 70px;
+  padding: 70px 0;
   background: #191919;
   .container {
     padding: 0 50px;
@@ -38,8 +38,40 @@ const StyledHome = styled.section`
     .card_wrapper {
       display: flex;
       justify-content: center;
+      text-align: center;
       flex-wrap: wrap;
       gap: 15px;
+      .card {
+        width: 170px;
+        margin-bottom: 25px;
+        .card_text-wrapper {
+          min-height: 70px;
+        }
+        .card_title {
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 20px;
+          text-align: center;
+          color: #c9ac8c;
+          margin-bottom: 0;
+        }
+        .card_text {
+          font-weight: 400;
+          font-size: 12px;
+          margin-top: 5px;
+          line-height: 12px;
+          text-align: center;
+          color: rgba(255, 255, 255, 0.6);
+        }
+        .card_icon-wrapper {
+          display: flex;
+          justify-content: space-evenly;
+          color: #fff;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 16px;
+        }
+      }
     }
     .text {
       font-family: "rotterburg";

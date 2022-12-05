@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { StyledCard } from "../style/components/card";
 
-const Card = ({ img, title, text, view, id }) => {
+const Card = ({ img, title, key, text, view, id }) => {
   return (
-    <StyledCard id={id}>
+    <StyledCard id={id} key={key}>
       <Link to={`/book/` + id}>
         <div className="card_img">
           <img src={img} className="card_img-item" alt="card-img" />

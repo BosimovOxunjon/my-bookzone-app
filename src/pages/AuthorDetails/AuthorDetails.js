@@ -9,13 +9,13 @@ import keys from "../../configs";
 import BookImg from "../../assets/images/book/book.png";
 import { StyledBookDetails } from "../../style/pages/bookDetails";
 
-const BookDetails = () => {
+const AuthorDetails = () => {
   const { id } = useParams();
   const [books, setBooks] = useState({
-    payload: { book: {} },
+    payload: {},
   });
   const fetchBooks = async () => {
-    const urlBooks = `${keys.BACKEND_API}/api/books/${id}`;
+    const urlBooks = `${keys.BACKEND_API}/api/authors/${id}`;
     const { data } = await axios.get(urlBooks);
     return data;
   };
@@ -26,7 +26,6 @@ const BookDetails = () => {
   }, []);
   console.log(id);
   console.log(books);
-  ``;
   return (
     <StyledBookDetails>
       <div className="container">
@@ -117,4 +116,4 @@ const BookDetails = () => {
   );
 };
 
-export default BookDetails;
+export default AuthorDetails;

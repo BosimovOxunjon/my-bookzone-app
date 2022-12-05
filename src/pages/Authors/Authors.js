@@ -1,24 +1,28 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Card from "../../components/Card";
+import { TiBook } from "react-icons/ti";
+import { BiHeadphone } from "react-icons/bi";
 import HomeImg from "../../assets/images/home/home.png";
 import { StyledHome } from "../../style/pages/home";
 import keys from "../../configs";
 import Search from "../Search/Search";
+import { Link } from "react-router-dom";
 
-const Home = () => {
-  const [books, setBooks] = useState({ payload: { docs: [] } });
+const Authors = () => {
+  const [authors, setAuthors] = useState({ payload: [] });
   const fetchBooks = async () => {
-    const urlBooks = `${keys.BACKEND_API}/api/books`;
-    const { data } = await axios.get(urlBooks);
+    const urlAuthors = `${keys.BACKEND_API}/api/authors`;
+    const { data } = await axios.get(urlAuthors);
+    console.log(data);
     return data;
   };
   useEffect(() => {
     fetchBooks().then((data) => {
-      setBooks(data);
+      setAuthors(data);
     });
   }, []);
-  console.log(books);
+  console.log(authors);
   return (
     <>
       <Search />
@@ -51,17 +55,30 @@ const Home = () => {
           </div>
           <div className="row">
             <div className="col card_wrapper">
-              {books.payload.docs.map((item) => {
+              {authors.payload.map((item) => {
                 return (
                   <>
-                    <Card
-                      key={item?._id}
-                      id={item?._id}
-                      img={item?.imageLink || HomeImg}
-                      title={item?.title}
-                      text={item?.author.firstName}
-                      view={item?.views}
-                    />
+                    <div className="card" id={item?._id}>
+                        <Link to={`/author/` + item?._id}>
+                      <img src={HomeImg} alt="author-img" />
+                        </Link>
+                      <div className="card_text-wrapper">
+                        <h3 className="card_title">
+                          {item?.firstName + " " + item?.lastName}
+                        </h3>
+                        <p className="card_text">
+                          {item?.date_of_birth.slice(0, 4)}
+                        </p>
+                      </div>
+                      <div className="card_icon-wrapper">
+                        <span>
+                          <TiBook className="card_icon" /> 34
+                        </span>
+                        <span>
+                          <BiHeadphone className="card_icon" /> 13
+                        </span>
+                      </div>
+                    </div>
                   </>
                 );
               })}
@@ -73,4 +90,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Authors;
