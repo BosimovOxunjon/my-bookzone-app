@@ -12,7 +12,7 @@ const Header = () => {
 
   useEffect(() => {
     window
-      .matchMedia("(max-width: 768px)")
+      .matchMedia("(min-width: 768px)")
       .addEventListener("change", (e) => setShow(e.matches));
   }, []);
   return (
@@ -21,15 +21,16 @@ const Header = () => {
         <Link to="/" className="logo">
           <img src={Logo} alt="logo_img" />
         </Link>
-        <nav
-          style={{
-            display: show ? "flex" : "none",
-            visibility: "visible",
-            opacity: "1",
-            transition: "1.7s",
-          }}
-        >
-          <ul className="navbar_list">
+        <nav>
+          <ul
+            className="navbar_list"
+            style={{
+              display: show ? "flex" : "none",
+              visibility: "visible",
+              opacity: "1",
+              transition: "1.7s",
+            }}
+          >
             <li className="nav_item">
               <a href="#" className="nav_link">
                 Bosh sahifa

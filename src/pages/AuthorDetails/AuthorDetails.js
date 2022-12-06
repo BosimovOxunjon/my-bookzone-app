@@ -1,118 +1,82 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { TiBook } from "react-icons/ti";
-import { BiHeadphone } from "react-icons/bi";
-import { IoMdPhonePortrait } from "react-icons/io";
-import { ImQuotesLeft } from "react-icons/im";
+import { BsFillBookmarkFill } from "react-icons/bs";
 import keys from "../../configs";
-import BookImg from "../../assets/images/book/book.png";
-import { StyledBookDetails } from "../../style/pages/bookDetails";
+import AuthorImg from "../../assets/images/authors/author.png";
+import { StyledAuthorDetails } from "../../style/pages/authorDetails";
 
 const AuthorDetails = () => {
   const { id } = useParams();
-  const [books, setBooks] = useState({
+  const [author, setAuthor] = useState({
     payload: {},
   });
+
   const fetchBooks = async () => {
-    const urlBooks = `${keys.BACKEND_API}/api/authors/${id}`;
-    const { data } = await axios.get(urlBooks);
+    const urlAuthor = `${keys.BACKEND_API}/api/authors/${id}`;
+    const { data } = await axios.get(urlAuthor);
     return data;
   };
   useEffect(() => {
     fetchBooks().then((data) => {
-      setBooks(data);
+      setAuthor(data);
     });
   }, []);
   console.log(id);
-  console.log(books);
+  console.log(author);
   return (
-    <StyledBookDetails>
+    <StyledAuthorDetails>
       <div className="container">
         <div className="row">
           <div className="col">
             <div className="img_wrapper">
-              <img src={BookImg} alt="book-details" />
+              <img src={AuthorImg} alt="book-details" />
+            </div>
+            <div className="author_date">
+              <p className="author_date-text">Tavallud sanasi</p>
+              <p className="author_date-of-birth">
+                {/* {author.payload.date_of_birth} */}
+              </p>
+              <p className="author_date-text">Toshkent, Uzbekistan</p>
             </div>
           </div>
           <div className="col">
-            <h1 className="title">{books.payload.book.title}</h1>
-            <p className="book_info">
-              <span>Sahifalar soni: </span> 376
+            <h1 className="author_title">
+              {author.payload.firstName + " " + author.payload.lastName}
+            </h1>
+            <p className="author_text">
+              O'tkir Hoshimov 1941 yil Toshkent viloyatining Zangiota (hozirgi
+              Chilonzor) tumanidagi Do'mbiravot mavzeida tug'ildi. O'. Hoshimov
+              mehnat faoliyatini erta boshladi. Toshkent Davlat universiteti
+              (hozirgi O'zbekiston Milliy universiteti)ning jurnalistika
+              kulliyotida o'qish bilan baravar gazeta tahririyatida ishladi.
+              1959 yildan 1963 yilgacha “Temiryo'lchi”, “Qizil O'zbekiston”,
+              “Transportniy rabochiy” gazetalarida xat tashuvchi, mussaxhih,
+              tarjimon bo'lib ishladi. So'ng “Toshkent haqiqati” gazetasida
+              adabiy xodim (1963-1966), “Toshkent oqshomi” gazetasida bo'lim
+              mudiri (1966-1982), G'. G'ulom nomidagi Adabiyot va san'at
+              nashriyotida bosh muharrir o'rinbosari (1982-1985) bo'ldi.
+              1985-1995 yillarda “Sharq yulduzi” jurnaliga bosh muharrirlik
+              qildi. 1995 yildan 2005 yilgacha O'zbekiston Respublikasi Oliy
+              Majlisining Matbuot va axborot qo'mitasi raisi lavozimida ishladi.
+              2005 yildan “Teatr“ jurnalida bosh muharrir bo'lib ishladi.
             </p>
-            <p className="book_info">
-              <span>Chop etilgan:</span> 2021
-            </p>
-            <p className="book_info">
-              <span>Janri:</span> Tarixiy
-            </p>
-            <p className="book_info">
-              <span>Nashriyot:</span> Nihol nashri
-            </p>
-            <p className="description">
-              Toliq ma'lumot <hr />
-            </p>
-            <p className="book_description">{books.payload.book.description}</p>
-            <p style={{ color: "#C9AC8C" }}>Mavjud formatlar</p>
-            <div className="book_types">
-              <div className="book_types-wrapper">
-                <div className="book_types-item">
-                  <TiBook className="book_icon" />
-                  <p>Qog'oz kitob</p>
-                  <span>27 000 so'm</span>
-                </div>
-                <div className="book_types-item">
-                  <BiHeadphone className="book_icon" />
-                  <p>Audiokitob</p>
-                  <span>6:23 soat</span>
-                </div>
-                <div className="book_types-item">
-                  <IoMdPhonePortrait className="book_icon" />
-                  <p>Elektron</p>
-                  <span>pdf, epub</span>
-                </div>
-                <div />
-              </div>
-              <button className="book_types-btn">Javonga qo'shish</button>
+            <div className="author_creativy">
+              <h2 className="author_creativity-title">
+                <BsFillBookmarkFill className="author_creativy-icon" />
+                <span>IJODI</span>
+              </h2>
+              <p className="author_creativy-text">
+                Yozuvchining ilk asari 1962-yilda „Po'lat chavandoz“ nomida
+                ocherklar to'plami tarzida nashrdan chiqdi. Ammo yozuvchiga
+                muvaffaqiyat keltirgan asar 1970-yilda nashr qilingan „Bahor
+                qaytmaydi“ qissasi bo'ldi.
+              </p>
             </div>
           </div>
         </div>
-        <section className="quotes">
-          <ul className="quotes_link">
-            <li>
-              <a className="quotes_link-item" href="#">
-                Muallif haqida
-              </a>
-            </li>
-            <li>
-              <a className="quotes_link-item" href="#">
-                Kitobdan iqtiboslar
-              </a>
-            </li>
-            <li>
-              <a className="quotes_link-item" href="#">
-                Kitoblar taqrizi
-              </a>
-            </li>
-          </ul>
-          <div className="row quotes_info">
-            <div className="quotes_info-link">
-              <ImQuotesLeft className="quotes_icon" />
-              Inson bolasi ne kunlarni ko‘rmaydi?! Har bir odam o‘z g‘ami bilan
-              bo‘lsa, hayotdan ko‘z yumib ketganlarga umr bo‘yi motam tutib
-              o‘tsa, bu moddiy olam shu kunlarga yetolarmidi? Hayot to‘lqini
-              ojizlarni qirg‘oqqa irg‘itib tashlaydi. Oqimga qarshi suza
-              olganlar, to‘lqinni egarlaganlargina ertangi kunga yetib keladi.
-            </div>
-            <div className="quotes_info-link">
-              <ImQuotesLeft className="quotes_icon" />
-              Yer kurrasida chumolidek mehnat qilayotganlardan ko‘ra, tuproq
-              tagida yotganlar ko‘p. Yer qatlami odam suyaklariga to‘lib ketgan.
-            </div>
-          </div>
-        </section>
       </div>
-    </StyledBookDetails>
+    </StyledAuthorDetails>
   );
 };
 

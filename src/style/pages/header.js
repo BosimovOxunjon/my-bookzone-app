@@ -13,8 +13,11 @@ const StyledHeader = styled.header`
     height: 70px;
     padding: 0 50px;
   }
-  .navbar_list {
+  nav {
     display: flex;
+  }
+  .navbar_list {
+    display: flex !important;
     list-style: none;
     padding-left: 0;
     .nav_item {
