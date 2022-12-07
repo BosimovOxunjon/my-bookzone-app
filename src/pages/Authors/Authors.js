@@ -6,6 +6,7 @@ import { BiHeadphone } from "react-icons/bi";
 import HomeImg from "../../assets/images/home/home.png";
 import { StyledHome } from "../../style/pages/home";
 import keys from "../../configs";
+import Header from "../Header/Header";
 import Search from "../Search/Search";
 import { Link } from "react-router-dom";
 
@@ -25,6 +26,7 @@ const Authors = () => {
   console.log(authors);
   return (
     <>
+      <Header />
       <Search />
       <StyledHome>
         <div className="container">
@@ -59,9 +61,9 @@ const Authors = () => {
                 return (
                   <>
                     <div className="card" id={item?._id}>
-                        <Link to={`/author/` + item?._id}>
-                      <img src={HomeImg} alt="author-img" />
-                        </Link>
+                      <Link to={`/author/` + item?._id}>
+                        <img src={HomeImg} alt="author-img" />
+                      </Link>
                       <div className="card_text-wrapper">
                         <h3 className="card_title">
                           {item?.firstName + " " + item?.lastName}

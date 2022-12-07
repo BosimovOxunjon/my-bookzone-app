@@ -4,6 +4,7 @@ import Card from "../../components/Card";
 import HomeImg from "../../assets/images/home/home.png";
 import { StyledHome } from "../../style/pages/home";
 import keys from "../../configs";
+import Header from "../Header/Header";
 import Search from "../Search/Search";
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
   console.log(books);
   return (
     <>
+      <Header />
       <Search />
       <StyledHome>
         <div className="container">

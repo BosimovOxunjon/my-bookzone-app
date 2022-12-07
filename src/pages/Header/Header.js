@@ -32,9 +32,9 @@ const Header = () => {
             }}
           >
             <li className="nav_item">
-              <a href="#" className="nav_link">
+              <Link to={`/home`} className="nav_link">
                 Bosh sahifa
-              </a>
+              </Link>
             </li>
             <li className="nav_item">
               <a href="#" className="nav_link">

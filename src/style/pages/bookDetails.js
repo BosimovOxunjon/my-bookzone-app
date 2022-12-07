@@ -11,15 +11,18 @@ const StyledBookDetails = styled.section`
     display: flex;
     margin-top: 20px;
     .col:first-child {
+      display: flex;
+      align-items: center;
       width: 40%;
       .img_wrapper {
         img {
+          display: inline-block;
           width: 100%;
         }
       }
     }
     .col:last-child {
-      padding-left: 20px;
+      padding: 10%;
       width: 60%;
       .title {
         font-family: cursive;
@@ -43,6 +46,7 @@ const StyledBookDetails = styled.section`
       .description {
         display: flex;
         align-items: center;
+        margin: 30px 0;
         color: #c9ac8c;
         font-size: 12px;
         hr {
@@ -100,8 +104,9 @@ const StyledBookDetails = styled.section`
   .quotes {
     .quotes_link {
       display: flex;
-      width: 50%;
       list-style: none;
+      width: 50%;
+      margin: 50px 0;
       padding-left: 0;
       justify-content: space-between;
       .quotes_link-item {

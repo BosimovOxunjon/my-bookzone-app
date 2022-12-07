@@ -14,16 +14,16 @@ const StyledAuthorDetails = styled.section`
       width: 50%;
     }
     .col:first-child {
-      width: 50%;
+      width: 40%;
       .img_wrapper {
         img {
-          width: 100%;
+          width: 90%;
         }
       }
     }
     .col:last-child {
-      padding-left: 20px;
-      width: 50%;
+      width: 60%;
+      padding: 0 30px;
     }
     .author_date {
       margin-top: 30px;
@@ -122,6 +122,14 @@ const StyledAuthorDetails = styled.section`
       font-size: 16px;
       line-height: 144.4%;
       color: rgba(255, 255, 255, 0.8);
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .col:first-child {
+      width: 60% !important;
+    }
+    .col:last-child {
+      width: 40% !important;
     }
   }
   @media screen and (max-width: 769px) {

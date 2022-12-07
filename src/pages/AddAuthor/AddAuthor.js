@@ -1,14 +1,18 @@
 import React from "react";
-import AddBookImg from "../../assets/images/addbook/book.png";
+import AddAuthorImg from "../../assets/images/addauthor/avloniy.png";
 import { StyledAddBook } from "../../style/pages/addBook";
 
-const AddBook = () => {
+const AddAuthor = () => {
   return (
     <StyledAddBook>
       <div className="row">
         <div className="col">
           <div className="addbook_img">
-            <img className="addbook_img-item" src={AddBookImg} alt="book-img" />
+            <img
+              className="addbook_img-item"
+              src={AddAuthorImg}
+              alt="book-img"
+            />
           </div>
           <h3 className="addbook_title">Ulug'bek xazinasi</h3>
           <button className="addbook_btn">Upload cover</button>
@@ -80,4 +84,4 @@ const AddBook = () => {
   );
 };
 
-export default AddBook;
+export default AddAuthor;
