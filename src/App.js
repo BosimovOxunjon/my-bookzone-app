@@ -8,6 +8,7 @@ import BookDetails from "./pages/BookDetails/BookDetails";
 import AuthorDetails from "./pages/AuthorDetails/AuthorDetails";
 import AddBook from "./pages/AddBook/AddBook";
 import AddAuthor from "./pages/AddAuthor/AddAuthor";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/signin" element={<SignIn />} exact />
         <Route path="/addbook" element={<AddBook />} exact />
         <Route path="/addauthor" element={<AddAuthor />} exact />
+        <Route path="/profile" element={<Profile />} exact />
       </Routes>
     </>
   );

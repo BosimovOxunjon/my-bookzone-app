@@ -6,13 +6,11 @@ import ProfileImg from "../../assets/images/profile/profile.png";
 import { StyledHeader } from "../../style/pages/header";
 
 const Header = () => {
-  const [show, setShow] = useState(
-    window.matchMedia("(max-width: 768px)").matches
-  );
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     window
-      .matchMedia("(min-width: 768px)")
+      .matchMedia("(max-width: 768px)")
       .addEventListener("change", (e) => setShow(e.matches));
   }, []);
   return (
@@ -25,7 +23,7 @@ const Header = () => {
           <ul
             className="navbar_list"
             style={{
-              display: show ? "flex" : "none",
+              display: show ? "flex" : "block",
               visibility: "visible",
               opacity: "1",
               transition: "1.7s",
@@ -43,12 +41,12 @@ const Header = () => {
             </li>
             <li className="nav_item">
               <Link to={`/addbook`} className="nav_link">
-                Add Book
+                Kitob qo'shish
               </Link>
             </li>
             <li className="nav_item">
               <Link to={`/addauthor`} className="nav_link">
-                Maqolalar
+                Adib qo'shish
               </Link>
             </li>
           </ul>

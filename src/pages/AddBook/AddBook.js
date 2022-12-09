@@ -1,8 +1,19 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import AddBookImg from "../../assets/images/addbook/book.png";
+import keys from "../../configs";
 import { StyledAddBook } from "../../style/pages/addBook";
 
 const AddBook = () => {
+  const [newBooks, setNewBooks] = useState({});
+  const fetchBooks = async () => {
+    const { data } = await axios.post(keys.BACKEND_API, {
+      method: "POST",
+      body: new FormData(document.getElementsByClassName(".addbook_form")),
+    });
+    setNewBooks(data);
+  };
+  console.log(newBooks);
   return (
     <StyledAddBook>
       <div className="row">
@@ -75,6 +86,7 @@ const AddBook = () => {
             ></textarea>{" "}
             <br />
             <input
+              onSubmit={() => fetchBooks()}
               className="addbook_btn"
               type="submit"
               name="submit"
