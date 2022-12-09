@@ -53,6 +53,7 @@ const StyledHome = styled.section`
           line-height: 20px;
           text-align: center;
           color: #c9ac8c;
+          text-decoration: none;
           margin-bottom: 0;
         }
         .card_text {

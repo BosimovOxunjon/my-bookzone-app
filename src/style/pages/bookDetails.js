@@ -126,7 +126,7 @@ const StyledBookDetails = styled.section`
         line-height: 24px;
         color: #fff;
         padding: 40px;
-        background: linear-gradient(263.94deg, #7b7474 0%, #848080 98.06%);
+        background: linear-gradient(263.94deg, #383636 0%, #292929 98.06%);
         border-radius: 15px;
         .quotes_icon {
           position: absolute;

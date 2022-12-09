@@ -5,6 +5,7 @@ import BookDetails from "./pages/BookDetails/BookDetails";
 import Authors from "./pages/Authors/Authors";
 import AuthorDetails from "./pages/AuthorDetails/AuthorDetails";
 import AddBook from "./pages/AddBook/AddBook";
+import AddAuthor from "./pages/AddAuthor/AddAuthor";
 
 export default [
   {
@@ -41,5 +42,10 @@ export default [
     path: "/addbook",
     component: AddBook,
     key: "addbook",
+  },
+  {
+    path: "/addauthor",
+    component: AddAuthor,
+    key: "addauthor",
   },
 ];

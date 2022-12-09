@@ -37,24 +37,19 @@ const Header = () => {
               </Link>
             </li>
             <li className="nav_item">
-              <a href="#" className="nav_link">
-                Nasr
-              </a>
+              <Link to={`/authors`} className="nav_link">
+                Adiblar
+              </Link>
             </li>
             <li className="nav_item">
-              <a href="#" className="nav_link">
-                Nazm
-              </a>
+              <Link to={`/addbook`} className="nav_link">
+                Add Book
+              </Link>
             </li>
             <li className="nav_item">
-              <a href="#" className="nav_link">
+              <Link to={`/addauthor`} className="nav_link">
                 Maqolalar
-              </a>
-            </li>
-            <li className="nav_item">
-              <a href="#" className="nav_link">
-                Forum
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

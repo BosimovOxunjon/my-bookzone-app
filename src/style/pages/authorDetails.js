@@ -165,6 +165,13 @@ const StyledAuthorDetails = styled.section`
     .author_creativy-text {
       padding-left: 0 !important;
     }
+    .col:last-child {
+      padding: 0;
+      text-align: center;
+      .author_title {
+        font-size: 24px;
+      }
+    }
   }
 `;
 

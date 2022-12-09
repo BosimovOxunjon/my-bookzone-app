@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import Card from "../../components/Card";
 import { TiBook } from "react-icons/ti";
 import { BiHeadphone } from "react-icons/bi";
 import HomeImg from "../../assets/images/home/home.png";
@@ -65,9 +64,14 @@ const Authors = () => {
                         <img src={HomeImg} alt="author-img" />
                       </Link>
                       <div className="card_text-wrapper">
-                        <h3 className="card_title">
-                          {item?.firstName + " " + item?.lastName}
-                        </h3>
+                        <Link
+                          to={`/author/` + item?._id}
+                          className="card_title"
+                        >
+                          <h3 className="card_title">
+                            {item?.firstName + " " + item?.lastName}
+                          </h3>
+                        </Link>
                         <p className="card_text">
                           {item?.date_of_birth.slice(0, 4)}
                         </p>

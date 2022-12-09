@@ -21,13 +21,15 @@ const AddBook = () => {
               type="text"
               name="title"
               placeholder="Title"
+              required
             />{" "}
             <br />
             <input
               className="addbook_form-input"
-              type="text"
+              type="number"
               name="pages"
               placeholder="Pages"
+              required
             />{" "}
             <br />
             <input
@@ -35,6 +37,7 @@ const AddBook = () => {
               type="number"
               name="date"
               placeholder="Year"
+              required
             />{" "}
             <br />
             <input
@@ -42,6 +45,7 @@ const AddBook = () => {
               type="number"
               name="price"
               placeholder="Price"
+              required
             />{" "}
             <br />
             <input
@@ -49,6 +53,7 @@ const AddBook = () => {
               type="text"
               name="country"
               placeholder="Country"
+              required
             />{" "}
             <br />
             <input
@@ -56,6 +61,7 @@ const AddBook = () => {
               type="text"
               name="author"
               placeholder="Author"
+              required
             />{" "}
             <br />
             <textarea
@@ -65,6 +71,7 @@ const AddBook = () => {
               cols="30"
               rows="5"
               placeholder="Description"
+              required
             ></textarea>{" "}
             <br />
             <input

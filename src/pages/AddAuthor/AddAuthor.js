@@ -15,37 +15,41 @@ const AddAuthor = () => {
             />
           </div>
           <h3 className="addbook_title">Ulug'bek xazinasi</h3>
-          <button className="addbook_btn">Upload cover</button>
+          <button className="addbook_btn">Upload image</button>
         </div>
         <div className="col">
-          <h1 className="title">Add book</h1>
+          <h1 className="title">Add author</h1>
           <form className="addbook_form">
             <input
               className="addbook_form-input"
               type="text"
-              name="title"
-              placeholder="Title"
+              name="firstName"
+              placeholder="First name"
+              required
             />{" "}
             <br />
             <input
               className="addbook_form-input"
               type="text"
-              name="pages"
-              placeholder="Pages"
+              name="lastName"
+              placeholder="Last name"
+              required
             />{" "}
             <br />
             <input
               className="addbook_form-input"
               type="number"
-              name="date"
-              placeholder="Year"
+              name="dateOfBirth"
+              placeholder="Date of birth"
+              required
             />{" "}
             <br />
             <input
               className="addbook_form-input"
               type="number"
-              name="price"
-              placeholder="Price"
+              name="dateOfDeath"
+              placeholder="Date of death"
+              required
             />{" "}
             <br />
             <input
@@ -53,13 +57,7 @@ const AddAuthor = () => {
               type="text"
               name="country"
               placeholder="Country"
-            />{" "}
-            <br />
-            <input
-              className="addbook_form-input"
-              type="text"
-              name="author"
-              placeholder="Author"
+              required
             />{" "}
             <br />
             <textarea
@@ -68,7 +66,8 @@ const AddAuthor = () => {
               id=""
               cols="30"
               rows="5"
-              placeholder="Description"
+              placeholder="Bio"
+              required
             ></textarea>{" "}
             <br />
             <input
