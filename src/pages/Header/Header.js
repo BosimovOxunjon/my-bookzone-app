@@ -55,9 +55,11 @@ const Header = () => {
           <VscListSelection />
         </button>
         <div className="header_profile">
-          <div className="img_wrapper">
-            <img src={ProfileImg} className="img" alt="profie-img" />
-          </div>
+          <Link to={`/profile`}>
+            <div className="img_wrapper">
+              <img src={ProfileImg} className="img" alt="profie-img" />
+            </div>
+          </Link>
         </div>
       </div>
     </StyledHeader>

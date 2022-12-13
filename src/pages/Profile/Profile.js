@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { AiFillStar, AiFillAppstore } from "react-icons/ai";
 import { MdRefresh } from "react-icons/md";
 import ProfilePhoto from "../../assets/images/profile/man.jpeg";
-import { Layout, Col, Row, Space, Typography, Divider, Container } from "antd";
+import { Layout, Col, Row, Space, Typography, Divider } from "antd";
 import Card from "../../components/Card";
 import HomeImg from "../../assets/images/home/home.png";
 import { StyledProfile } from "../../style/pages/profile";
@@ -37,8 +37,8 @@ const Profile = () => {
                     <AiFillStar className="profile_img-icon-item" />
                   </span>
                 </div>
-                <p>Oltin kitobxon</p>
-                <p>186 ta kitob o'qigan</p>
+                <p className="profile_img-title">Oltin kitobxon</p>
+                <p className="profile_img-text">186 ta kitob o'qigan</p>
               </div>
               <div className="profile_info">
                 <h2 className="profile_title">farrux abdullayev</h2>
@@ -54,8 +54,8 @@ const Profile = () => {
                 </p>
               </div>
             </div>
-            <Row>
-              <Col sm={6}>
+            <Row className="profile_books">
+              <Col span={24} sm={16} lg={8} style={{ marginRight: "auto" }}>
                 <div className="books_reading-wrapper">
                   <p className="books_reading-title">
                     Hozir o'qilmoqda...{" "}
@@ -81,10 +81,67 @@ const Profile = () => {
                       </button>
                     </div>
                   </div>
+                  <div className="books_reading-card">
+                    <div className="books_reading-card-img">
+                      <img src={ProfilePhoto} alt="ikki eshik orasi" />
+                    </div>
+                    <div className="books_reading-text">
+                      <p>Ikki eshik orasi</p>
+                      <span></span>
+                    </div>
+                    <div className="books_reading-percentage">
+                      <p>96%</p>
+                      <button>
+                        <span>
+                          Yangilash
+                          <MdRefresh className="books_reading-percentage-icon" />
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <div className="books_reading-card">
+                    <div className="books_reading-card-img">
+                      <img src={ProfilePhoto} alt="ikki eshik orasi" />
+                    </div>
+                    <div className="books_reading-text">
+                      <p>Ikki eshik orasi</p>
+                      <span></span>
+                    </div>
+                    <div className="books_reading-percentage">
+                      <p>96%</p>
+                      <button>
+                        <span>
+                          Yangilash
+                          <MdRefresh className="books_reading-percentage-icon" />
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <div className="books_reading-card">
+                    <div className="books_reading-card-img">
+                      <img src={ProfilePhoto} alt="ikki eshik orasi" />
+                    </div>
+                    <div className="books_reading-text">
+                      <p>Ikki eshik orasi</p>
+                      <span></span>
+                    </div>
+                    <div className="books_reading-percentage">
+                      <p>96%</p>
+                      <button>
+                        <span>
+                          Yangilash
+                          <MdRefresh className="books_reading-percentage-icon" />
+                        </span>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </Col>
-              <Col sm={12}>
-                <Space split={<Divider type="vertical" />}>
+              <Col span={24} lg={15}>
+                <Space
+                  split={<Divider type="vertical" />}
+                  style={{ margin: "25px 0 25px 5%" }}
+                >
                   <Typography.Link>O'qilganlar</Typography.Link>
                   <Typography.Link>O'qishni xohlayman</Typography.Link>
                   <Typography.Link>O'qilmoqda</Typography.Link>

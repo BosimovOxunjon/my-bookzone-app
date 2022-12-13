@@ -8,8 +8,8 @@ const StyledProfile = styled.section`
   .profile {
     display: flex;
     margin: auto;
-    width: 95%;
     padding: 30px 50px;
+    border-radius: 12px;
     background: radial-gradient(
       85.43% 1678.66% at 98.07% 50%,
       #373737 0%,
@@ -45,6 +45,12 @@ const StyledProfile = styled.section`
           border: 2px solid #c9ac8c;
           color: #c9ac8c;
           background: black;
+        }
+        .profil_img-title {
+          font-weight: 400;
+          font-size: 22px;
+          line-height: 144.4%;
+          color: #c9ac8c;
         }
       }
       .profile_img-title {
@@ -86,8 +92,13 @@ const StyledProfile = styled.section`
     }
   }
   .books_reading-wrapper {
+    padding: 5%;
     background-color: #202020;
+    border-radius: 14px;
     .books_reading-title {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
       font-weight: 400;
       font-size: 22px;
       line-height: 144.4%;
@@ -99,6 +110,7 @@ const StyledProfile = styled.section`
     .books_reading-card {
       display: flex;
       align-items: center;
+      justify-content: center;
       .books_reading-card-img {
         width: 35px;
         height: 45px;
@@ -161,6 +173,15 @@ const StyledProfile = styled.section`
           }
         }
       }
+    }
+  }
+  .profile_books {
+    margin-top: 25px;
+  }
+  @media screen and (max-width: 576px) {
+    .profile {
+      justify-content: center;
+      flex-wrap: wrap;
     }
   }
 `;
