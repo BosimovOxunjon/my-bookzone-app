@@ -45,6 +45,9 @@ const StyledAddBook = styled.section`
           border-radius: 10px;
           margin-bottom: 17px;
         }
+        .addbook_form-btn {
+          height: 100%;
+        }
       }
     }
   }

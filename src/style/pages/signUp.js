@@ -64,7 +64,15 @@ const StyledSignUp = styled.section`
       padding: 15px 0 15px 30px;
       font-size: 14px;
     }
+    .form_input-phone {
+      padding: 5px 0px 5px 15px;
+      input {
+        border: none;
+        padding: 15px;
+      }
+    }
     .form_submit {
+      height: 100%;
       font-style: normal;
       font-weight: 500;
       width: 50%;

@@ -13,12 +13,14 @@
     "react-bootstrap": "^2.6.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
+    "react-phone-number-input": "^3.2.13",
     "react-responsive": "^9.0.0",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.6",
     "svgo": "^3.0.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "world_countries_lists": "^2.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -26,7 +28,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-
   "browserslist": {
     "production": [
       ">0.2%",

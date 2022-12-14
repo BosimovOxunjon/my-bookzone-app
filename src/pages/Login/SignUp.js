@@ -1,10 +1,31 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
 import BgImg from "../../assets/images/signUp/signup.png";
 import MainImg from "../../assets/images/signUp/main.png";
+import { Form, Input, Button, Radio } from "antd";
+import keys from "../../configs";
 import { StyledSignUp } from "../../style/pages/signUp";
 
 const SignUp = () => {
+  const [phone, setPhone] = useState({});
+  const [value, setValue] = useState();
+  // const onFinish = (e) => {
+  //   console.log(e);
+  // };
+
+  const handleSignUp = async (values) => {
+    const { data } = await axios.post(`${keys.BACKEND_API}/api/sign-up`, {
+      ...values,
+    });
+    console.log(data);
+    console.log(e);
+    return data;
+  };
+
+  console.log(phone);
   return (
     <StyledSignUp>
       <div className="row">
@@ -16,7 +37,7 @@ const SignUp = () => {
         </div>
         <div className="content_form">
           <div className="content_form-item"></div>
-          <form className="form_wrapper">
+          <Form onFinish={handleSignUp} className="form_wrapper">
             <h2 className="title">Sign Up</h2>
             <p className="text">
               Already have an account.{" "}
@@ -24,56 +45,64 @@ const SignUp = () => {
                 Log in
               </Link>
             </p>
-            <input
-              className="form_input"
-              type="text"
-              name="Name"
-              placeholder="First name"
-              required
-            />{" "}
-            <br />
-            <input
-              className="form_input"
-              type="text"
-              name="Last name"
-              placeholder="Last name"
-              required
-            />{" "}
-            <br />
-            <input
-              className="form_input"
-              type="tel"
-              name="phone"
-              placeholder="Phone"
-              defaultValue="+998"
-              pattern="[+]{1}[0-9]{3}[0-9]{2}[0-9]{2}"
-              maxLength="13"
-              required
-            />
-            <br />
-            <input
-              className="form_input"
-              type="mail"
-              name="mail"
-              placeholder="Email"
-              required
-            />
-            <br />
-            <input
-              className="form_input"
-              type="password"
-              name="password"
-              placeholder="Password"
-              required
-            />{" "}
-            <br />
-            <input
-              className="form_submit"
-              type="submit"
-              name="button"
-              value="Next step"
-            />
-          </form>
+            <Form.Item name="firstName">
+              <Input
+                className="form_input"
+                type="text"
+                name="Name"
+                placeholder="First name"
+                required
+              />
+            </Form.Item>
+            <Form.Item name="lastName">
+              <Input
+                className="form_input"
+                type="text"
+                placeholder="Last name"
+                required
+              />
+            </Form.Item>
+            <Form.Item name="phone">
+              <PhoneInput
+                className="form_input form_input-phone"
+                defaultCountry="UZ"
+                international
+                placeholder="Enter phone number"
+                value={value}
+                onChange={setValue}
+              />
+            </Form.Item>
+            <Form.Item name="email">
+              <Input
+                className="form_input"
+                type="mail"
+                name="mail"
+                placeholder="Email"
+                required
+              />
+            </Form.Item>
+            <Form.Item name="role">
+              <Radio.Group>
+                <Radio value="reader"> Reader </Radio>
+                <Radio value="author"> Author </Radio>
+              </Radio.Group>
+            </Form.Item>
+            <Form.Item name="password">
+              <Input.Password
+                className="form_input"
+                style={{ padding: "15px" }}
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+              />
+            </Form.Item>
+            <Form.Item>
+              <Button className="form_submit" htmlType="submit">
+                Next step
+              </Button>
+            </Form.Item>
+          </Form>
         </div>
       </div>
     </StyledSignUp>
