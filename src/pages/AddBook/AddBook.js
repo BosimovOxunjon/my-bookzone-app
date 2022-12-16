@@ -1,24 +1,19 @@
-import { useForm } from "antd/es/form/Form";
 import axios from "axios";
 import React, { useState } from "react";
 import AddBookImg from "../../assets/images/addbook/book.png";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, Radio } from "antd";
 import keys from "../../configs";
 import { StyledAddBook } from "../../style/pages/addBook";
 
 const AddBook = () => {
   const [newBooks, setNewBooks] = useState({});
   const [form, setForm] = useState({});
-  const fetchBooks = async (e) => {
+  const onFinish = async (e) => {
     const { data } = await axios.post(`${keys.BACKEND_API}/api/books`, {
       method: "POST",
       body: e,
     });
     setNewBooks(data);
-  };
-
-  const onFinish = (e) => {
-    console.log(e);
   };
 
   console.log(newBooks);
@@ -35,7 +30,7 @@ const AddBook = () => {
         </div>
         <div className="col">
           <h1 className="title">Add book</h1>
-          <Form onFinish={fetchBooks} className="addbook_form">
+          <Form onFinish={onFinish} className="addbook_form">
             <Form.Item name="name">
               <Input
                 className="addbook_form-input"
@@ -98,6 +93,13 @@ const AddBook = () => {
                 placeholder="Description"
                 required
               ></Input.TextArea>
+            </Form.Item>
+            <Form.Item name="role">
+              <Radio.Group>
+                <Radio value="classic"> Classic </Radio>
+                <Radio value="biography"> Biography </Radio>
+                <Radio value="science"> Science </Radio>
+              </Radio.Group>
             </Form.Item>
             <Form.Item>
               <Button

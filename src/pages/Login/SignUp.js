@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import BgImg from "../../assets/images/signUp/signup.png";
@@ -12,20 +12,23 @@ import { StyledSignUp } from "../../style/pages/signUp";
 const SignUp = () => {
   const [phone, setPhone] = useState({});
   const [value, setValue] = useState();
-  // const onFinish = (e) => {
-  //   console.log(e);
-  // };
 
   const handleSignUp = async (values) => {
     const { data } = await axios.post(`${keys.BACKEND_API}/api/sign-up`, {
       ...values,
     });
     console.log(data);
-    console.log(e);
+    setPhone(data);
+    if (data.success == true) {
+      const location = useLocation();
+      // location.pathname(`/home`);
+      console.log(location, location.pathname, location.hash, location.state);
+    }
+    const res = await localStorage.setItem("user", JSON.stringify(data));
+    console.log(res);
     return data;
   };
 
-  console.log(phone);
   return (
     <StyledSignUp>
       <div className="row">
