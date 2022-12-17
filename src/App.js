@@ -14,12 +14,11 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<SignUp />} />
         <Route path="/home" element={<Home />} exact />
         <Route path="/book/:id" element={<BookDetails />} exact />
         <Route path="/authors" element={<Authors />} />
         <Route path="/author/:id" element={<AuthorDetails />} exact />
-        <Route path="/signup" element={<SignUp />} exact />
         <Route path="/signin" element={<SignIn />} exact />
         <Route path="/addbook" element={<AddBook />} exact />
         <Route path="/addauthor" element={<AddAuthor />} exact />

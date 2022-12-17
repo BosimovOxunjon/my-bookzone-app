@@ -20,9 +20,7 @@ const SignUp = () => {
     console.log(data);
     setPhone(data);
     if (data.success == true) {
-      const location = useLocation();
-      // location.pathname(`/home`);
-      console.log(location, location.pathname, location.hash, location.state);
+      window.location.replace("/home");
     }
     const res = await localStorage.setItem("user", JSON.stringify(data));
     console.log(res);

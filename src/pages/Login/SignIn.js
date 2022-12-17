@@ -13,12 +13,11 @@ const SignIn = () => {
       ...values,
     });
     console.log(data);
-    setPhone(data);
+    if (data.success == true) {
+      window.location.replace("/home");
+    }
     return data;
   };
-  // const handleSignIn = (e) => {
-  //   console.log(e);
-  // };
   return (
     <StyledSignUp>
       <div className="row">
