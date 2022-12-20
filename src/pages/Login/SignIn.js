@@ -9,13 +9,24 @@ import { StyledSignUp } from "../../style/pages/signUp";
 
 const SignIn = () => {
   const handleSignIn = async (values) => {
-    const { data } = await axios.post(`${keys.BACKEND_API}/api/login`, {
-      ...values,
-    });
-    console.log(data);
-    if (data.success == true) {
-      window.location.replace("/home");
+    const { data } = await axios.post(
+      `${keys.BACKEND_API}/api/login`,
+      {
+        ...values,
+      },
+      {
+        headers: {
+          authorization: localStorage.getItem("token"),
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log(data, "data from ign in");
+    if (data && data.success == true) {
+      return window.location.replace("/home");
     }
+    localStorage.setItem("token", JSON.stringify(data.token));
     return data;
   };
   return (

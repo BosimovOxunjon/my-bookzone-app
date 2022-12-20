@@ -7,17 +7,26 @@ import { StyledAddBook } from "../../style/pages/addBook";
 
 const AddBook = () => {
   const [newBooks, setNewBooks] = useState({});
-  const [form, setForm] = useState({});
   const onFinish = async (e) => {
-    const { data } = await axios.post(`${keys.BACKEND_API}/api/books`, {
-      method: "POST",
-      body: e,
-    });
+    const configs = {
+      headers: {
+        authorization: "Bearer " + JSON.parse(localStorage.getItem("token")),
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    };
+    const { data } = await axios.post(
+      `${keys.BACKEND_API}/api/books`,
+      e,
+      configs
+    );
+    if (newBooks && newBooks.success == true) {
+      return window.location.replace("/success");
+    }
     setNewBooks(data);
   };
 
   console.log(newBooks);
-  console.log(form);
   return (
     <StyledAddBook>
       <div className="row">
@@ -31,7 +40,7 @@ const AddBook = () => {
         <div className="col">
           <h1 className="title">Add book</h1>
           <Form onFinish={onFinish} className="addbook_form">
-            <Form.Item name="name">
+            <Form.Item name="title">
               <Input
                 className="addbook_form-input"
                 placeholder="Title"
@@ -47,7 +56,7 @@ const AddBook = () => {
                 required
               />
             </Form.Item>
-            <Form.Item name="date">
+            <Form.Item name="year">
               <Input
                 className="addbook_form-input"
                 type="number"
@@ -74,15 +83,6 @@ const AddBook = () => {
                 required
               />
             </Form.Item>
-            <Form.Item name="author">
-              <Input
-                className="addbook_form-input"
-                type="text"
-                name="author"
-                placeholder="Author"
-                required
-              />
-            </Form.Item>
             <Form.Item name="description">
               <Input.TextArea
                 className="addbook_form-input addbook_form-text"
@@ -94,7 +94,7 @@ const AddBook = () => {
                 required
               ></Input.TextArea>
             </Form.Item>
-            <Form.Item name="role">
+            <Form.Item name="category">
               <Radio.Group>
                 <Radio value="classic"> Classic </Radio>
                 <Radio value="biography"> Biography </Radio>

@@ -1,8 +1,33 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { Button, Form, Input } from "antd";
 import AddAuthorImg from "../../assets/images/addauthor/avloniy.png";
 import { StyledAddBook } from "../../style/pages/addBook";
+import TextArea from "antd/es/input/TextArea";
+import keys from "../../configs";
 
 const AddAuthor = () => {
+  const [newAuthors, setNewAuthors] = useState({});
+  const onFinish = async (e) => {
+    const configs = {
+      headers: {
+        authorization: "Bearer " + JSON.parse(localStorage.getItem("token")),
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    };
+    const { data } = await axios.post(
+      `${keys.BACKEND_API}/api/books`,
+      e,
+      configs
+    );
+    if (newAuthors && newAuthors.success == true) {
+      return window.location.replace("/success");
+    }
+    setNewAuthors(data);
+  };
+
+  console.log(newAuthors);
   return (
     <StyledAddBook>
       <div className="row">
@@ -19,64 +44,68 @@ const AddAuthor = () => {
         </div>
         <div className="col">
           <h1 className="title">Add author</h1>
-          <form className="addbook_form">
-            <input
-              className="addbook_form-input"
-              type="text"
-              name="firstName"
-              placeholder="First name"
-              required
-            />{" "}
-            <br />
-            <input
-              className="addbook_form-input"
-              type="text"
-              name="lastName"
-              placeholder="Last name"
-              required
-            />{" "}
-            <br />
-            <input
-              className="addbook_form-input"
-              type="number"
-              name="dateOfBirth"
-              placeholder="Date of birth"
-              required
-            />{" "}
-            <br />
-            <input
-              className="addbook_form-input"
-              type="number"
-              name="dateOfDeath"
-              placeholder="Date of death"
-              required
-            />{" "}
-            <br />
-            <input
-              className="addbook_form-input"
-              type="text"
-              name="country"
-              placeholder="Country"
-              required
-            />{" "}
-            <br />
-            <textarea
-              className="addbook_form-input addbook_form-text"
-              name="description"
-              id=""
-              cols="30"
-              rows="5"
-              placeholder="Bio"
-              required
-            ></textarea>{" "}
-            <br />
-            <input
-              className="addbook_btn"
-              type="submit"
-              name="submit"
-              value="Create"
-            />
-          </form>
+          <Form onFinish={onFinish} className="addbook_form">
+            <Form.Item name="firstName">
+              <Input
+                className="addbook_form-input"
+                type="text"
+                placeholder="First name"
+                required
+              />
+            </Form.Item>
+            <Form.Item name="lastName">
+              <Input
+                className="addbook_form-input"
+                type="text"
+                placeholder="Last name"
+                required
+              />
+            </Form.Item>
+            <Form.Item name="date_of_birth">
+              <Input
+                className="addbook_form-input"
+                type="number"
+                placeholder="Date of birth"
+                required
+              />
+            </Form.Item>
+            <Form.Item name="date_of_death">
+              <Input
+                className="addbook_form-input"
+                type="number"
+                placeholder="Date of death"
+                required
+              />
+            </Form.Item>
+            <Form.Item name="country">
+              <Input
+                className="addbook_form-input"
+                type="text"
+                placeholder="Country"
+                required
+              />
+            </Form.Item>
+            <Form.Item className="description">
+              <TextArea
+                className="addbook_form-input addbook_form-text"
+                id=""
+                cols="30"
+                rows="5"
+                placeholder="Bio"
+                required
+              ></TextArea>
+            </Form.Item>
+            <Form.Item>
+              <Button
+                className="addbook_btn addbook_form-btn"
+                type="submit"
+                name="submit"
+                htmlType="submit"
+              >
+                Create
+              </Button>
+            </Form.Item>
+          </Form>
         </div>
       </div>
     </StyledAddBook>

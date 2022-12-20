@@ -14,15 +14,26 @@ const SignUp = () => {
   const [value, setValue] = useState();
 
   const handleSignUp = async (values) => {
-    const { data } = await axios.post(`${keys.BACKEND_API}/api/sign-up`, {
-      ...values,
-    });
+    const { data } = await axios.post(
+      `${keys.BACKEND_API}/api/sign-up`,
+      {
+        ...values,
+      },
+      {
+        headers: {
+          authorization: localStorage.getItem("token"),
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    );
     console.log(data);
     setPhone(data);
-    if (data.success == true) {
-      window.location.replace("/home");
+    if (data && data.success == true) {
+      return window.location.replace("/home");
     }
     const res = await localStorage.setItem("user", JSON.stringify(data));
+    localStorage.setItem("token", JSON.stringify(data.token));
     console.log(res);
     return data;
   };
@@ -87,6 +98,15 @@ const SignUp = () => {
                 <Radio value="reader"> Reader </Radio>
                 <Radio value="author"> Author </Radio>
               </Radio.Group>
+            </Form.Item>
+            <Form.Item name="date_of_birth">
+              <Input
+                className="form_input"
+                style={{ padding: "15px" }}
+                type="number"
+                placeholder="Date of birth"
+                required
+              />
             </Form.Item>
             <Form.Item name="password">
               <Input.Password

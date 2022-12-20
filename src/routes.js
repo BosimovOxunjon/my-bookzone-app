@@ -7,6 +7,7 @@ import AuthorDetails from "./pages/AuthorDetails/AuthorDetails";
 import AddBook from "./pages/AddBook/AddBook";
 import AddAuthor from "./pages/AddAuthor/AddAuthor";
 import Profile from "./pages/Profile/Profile";
+import Success from "./components/success";
 
 export default [
   {
@@ -53,5 +54,10 @@ export default [
     path: "/profile",
     component: Profile,
     key: "profile",
+  },
+  {
+    path: "/success",
+    component: Success,
+    key: "success",
   },
 ];

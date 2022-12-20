@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <div className="container">
-        <Link to="/" className="logo">
+        <Link to="/home" className="logo">
           <img src={Logo} alt="logo_img" />
         </Link>
         <nav>
