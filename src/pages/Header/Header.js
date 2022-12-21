@@ -19,16 +19,15 @@ const Header = () => {
         <Link to="/home" className="logo">
           <img src={Logo} alt="logo_img" />
         </Link>
-        <nav>
-          <ul
-            className="navbar_list"
-            style={{
-              display: show ? "flex" : "block",
-              visibility: "visible",
-              opacity: "1",
-              transition: "1.7s",
-            }}
-          >
+        <nav
+          style={{
+            display: !show ? "flex" : "none",
+            visibility: !show ? "visible" : "hidden",
+            opacity: !show ? "1" : "0",
+            transition: "1.7s",
+          }}
+        >
+          <ul className="navbar_list">
             <li className="nav_item">
               <Link to={`/home`} className="nav_link">
                 Bosh sahifa
@@ -44,11 +43,11 @@ const Header = () => {
                 Kitob qo'shish
               </Link>
             </li>
-            <li className="nav_item">
+            {/* <li className="nav_item">
               <Link to={`/addauthor`} className="nav_link">
                 Adib qo'shish
               </Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
         <button className="btn" onClick={() => setShow(!show)}>

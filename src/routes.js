@@ -8,6 +8,8 @@ import AddBook from "./pages/AddBook/AddBook";
 import AddAuthor from "./pages/AddAuthor/AddAuthor";
 import Profile from "./pages/Profile/Profile";
 import Success from "./components/success";
+import Result from "./pages/results/Results";
+import Results from "./pages/results/Results";
 
 export default [
   {
@@ -59,5 +61,10 @@ export default [
     path: "/success",
     component: Success,
     key: "success",
+  },
+  {
+    path: "/results",
+    component: Results,
+    key: "results",
   },
 ];

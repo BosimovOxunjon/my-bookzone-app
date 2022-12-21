@@ -16,7 +16,7 @@ const SignIn = () => {
       },
       {
         headers: {
-          authorization: localStorage.getItem("token"),
+          authorization: localStorage.getItem("user"),
           Accept: "application/json",
           "Content-Type": "application/json",
         },
@@ -26,7 +26,8 @@ const SignIn = () => {
     if (data && data.success == true) {
       return window.location.replace("/home");
     }
-    localStorage.setItem("token", JSON.stringify(data.token));
+    localStorage.setItem("token", JSON.stringify(data));
+    console.log(localStorage.setItem("token", JSON.stringify(data.token)));
     return data;
   };
   return (

@@ -35,7 +35,7 @@ const StyledSearch = styled.section`
       border-radius: 15px;
       font-size: 16px;
       padding: 15px 25px;
-      width: 700px;
+      width: 150%;
       background: #404040;
       border: none;
     }
@@ -43,6 +43,7 @@ const StyledSearch = styled.section`
       display: flex;
       background: #c9ac8c;
       margin-left: 10px;
+      height: 100%;
       text-transform: capitalize;
       border-radius: 15px;
       padding: 14px 40px;

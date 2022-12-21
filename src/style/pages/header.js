@@ -11,7 +11,7 @@ const StyledHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     height: 70px;
-    padding: 0 50px;
+    padding: 0 50px !important;
   }
   nav {
     display: flex;

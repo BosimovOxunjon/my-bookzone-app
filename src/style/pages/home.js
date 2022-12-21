@@ -78,5 +78,21 @@ const StyledHome = styled.section`
       font-family: "rotterburg";
     }
   }
+  @media screen and (max-width: 769px) {
+    .title {
+      font-size: large !important;
+    }
+    .links_item {
+      font-size: 14px !important;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    .links_list {
+      flex-wrap: wrap;
+      .links_item {
+        margin-right: 15px;
+      }
+    }
+  }
 `;
 export { StyledHome };

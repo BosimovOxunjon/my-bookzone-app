@@ -10,6 +10,7 @@ import AddBook from "./pages/AddBook/AddBook";
 import AddAuthor from "./pages/AddAuthor/AddAuthor";
 import Profile from "./pages/Profile/Profile";
 import Success from "./components/success";
+import Results from "./pages/results/Results";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} exact />
         <Route path="/success" element={<Success />} exact />
+        <Route path="/results" element={<Results />} exact />
       </Routes>
     </>
   );
