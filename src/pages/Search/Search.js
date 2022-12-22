@@ -14,7 +14,7 @@ const Search = () => {
       `${keys.BACKEND_API}/api/books/search?title=${searchParam.get("query")}`
     );
     console.log(data);
-    if (!data === "") {
+    if (!data.payload === "") {
       alert("We do not any information about this");
     } else {
       window.location.replace("/results");
