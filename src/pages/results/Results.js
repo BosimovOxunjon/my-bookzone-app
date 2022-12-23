@@ -3,7 +3,9 @@ import HomeImg from "../../assets/images/home/home.png";
 import Header from "../Header/Header";
 import Card from "../../components/Card";
 import { Link } from "react-router-dom";
+import "antd";
 import { StyledResults } from "../../style/pages/results";
+import { Button } from "antd";
 
 const Results = () => {
   const [data, setData] = useState({ payload: [{}] });
@@ -25,32 +27,35 @@ const Results = () => {
       <Header />
       <StyledResults>
         <div className="container">
+          <h1 className="title">Natijalar</h1>
           <div style={{ marginTop: "100px" }}>
-            {data.payload > [0] ? (
-              data.payload.map((item) => {
-                return (
-                  <>
-                    <Card
-                      id={item._id}
-                      title={item.title || "We don't have any information"}
-                      key={item._id}
-                      img={item?.imageLink || HomeImg}
-                      // text={item?.author.firstName}
-                      view={item?.views}
-                    />
-                  </>
-                );
-              })
-            ) : (
-              <>
-                <span className="results_text">
-                  We don't have any information about this.{"  "}
-                </span>
-                <Link to={`/home`} className="results_link">
-                  Go to main page
-                </Link>
-              </>
-            )}
+            <div className="card_wrapper">
+              {data.payload > [0] ? (
+                data.payload.map((item) => {
+                  return (
+                    <>
+                      <Card
+                        id={item._id}
+                        title={item.title || "We don't have any information"}
+                        key={item._id}
+                        img={item?.imageLink || HomeImg}
+                        // text={item?.author.firstName}
+                        view={item?.views}
+                      />
+                    </>
+                  );
+                })
+              ) : (
+                <>
+                  <span className="results_text">
+                    Bu ma'lumov mavjud emas.{"  "}
+                  </span>
+                  <Link to={`/home`} className="results_link">
+                    <Button type="link">Bosh sahifada o'tish</Button>
+                  </Link>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </StyledResults>

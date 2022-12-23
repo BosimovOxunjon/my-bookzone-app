@@ -6,9 +6,16 @@ const StyledResults = styled.section`
   background: #191919;
   .container {
     padding: 5%;
+    .title {
+      text-align: center;
+      color: white;
+    }
     .results_text {
       color: white;
     }
+    // .results_link {
+    //   color: blue;
+    // }
   }
 `;
 export { StyledResults };
